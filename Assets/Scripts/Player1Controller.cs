@@ -25,24 +25,43 @@ public class Player1Controller : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.W) == true)
         {
-            plane.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 100f);
+            plane.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 5f);
         }
         else if (Input.GetKeyDown(KeyCode.S) == true)
         {
-            plane.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, -100f);
+            plane.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, -5f);
         }
         else if (Input.GetKeyDown(KeyCode.D) == true)
         {
-            plane.GetComponent<Rigidbody2D>().velocity = new Vector2(100f, 0f);
+            plane.GetComponent<Rigidbody2D>().velocity = new Vector2(5f, 0f);
         }
         else if (Input.GetKeyDown(KeyCode.A) == true)
         {
-            plane.GetComponent<Rigidbody2D>().velocity = new Vector2(-100f, 0f);
+            plane.GetComponent<Rigidbody2D>().velocity = new Vector2(-5f, 0f);
         }
     }
 
     void CheckBoundaries()
     {
+        if (plane.transform.position.y > 4.5)
+        {
+            plane.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, -5f);
+        }
 
+        else if (plane.transform.position.y < -4.5)
+        {
+            Debug.Log("i was here");
+            plane.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 5f);
+        }
+
+        if (plane.transform.position.x < -8.5)
+        {
+            plane.GetComponent<Rigidbody2D>().velocity = new Vector2(5f, 0f);
+        }
+
+        else if (plane.transform.position.x > 8.5)
+        {
+            plane.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, -5f);
+        }
     }
 }
