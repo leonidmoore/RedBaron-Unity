@@ -17,6 +17,7 @@ public class Player1Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         KeyPressed();
         CheckBoundaries();
     }
@@ -46,11 +47,11 @@ public class Player1Controller : MonoBehaviour
         if (plane.transform.position.y > 4.5)
         {
             plane.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, -5f);
+            //plane.transform.position = new Vector2(plane.transform.position.x, 4);
         }
 
         else if (plane.transform.position.y < -4.5)
         {
-            Debug.Log("i was here");
             plane.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 5f);
         }
 
